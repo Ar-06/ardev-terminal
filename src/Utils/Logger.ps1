@@ -1,3 +1,11 @@
+function Write-ArDevHeader {
+    Clear-Host
+    Write-Host ""
+    Write-Host "  ArDev Terminal" -ForegroundColor Cyan
+    Write-Host "  Modern PowerShell Dev Environment" -ForegroundColor DarkGray
+    Write-Host ""
+}
+
 function Write-ArDevInfo {
     param([string]$Message)
     Write-Host "[INFO] $Message" -ForegroundColor Cyan
