@@ -21,7 +21,7 @@ function ga {
 }
 
 function gc {
-    git commit -m @Args
+    git commit @Args
 }
 
 function gp {
