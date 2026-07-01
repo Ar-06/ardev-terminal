@@ -4,6 +4,15 @@ A modern and customizable development environment for Windows, PowerShell and WS
 
 ---
 
+## Requirements
+
+- Windows 11
+- PowerShell 7+
+- Windows Terminal
+- Nerd Font (JetBrainsMono Nerd Font recommended)
+
+---
+
 ## ✨ Features
 
 - ⭐ Starship Prompt
