@@ -20,6 +20,7 @@ function Install-ArDevTerminal {
 
     $PowerShellConfigPath = Join-Path $HOME ".config\powershell"
     $StarshipConfigPath = Join-Path $HOME ".config"
+    $FastfetchConfigPath = Join-Path $HOME ".config\fastfetch"
     $BackupPath = Join-Path $ProjectRoot "backups"
 
     Clear-Host
@@ -33,6 +34,7 @@ function Install-ArDevTerminal {
 
     New-Item -ItemType Directory -Force $PowerShellConfigPath | Out-Null
     New-Item -ItemType Directory -Force $StarshipConfigPath | Out-Null
+    New-Item -ItemType Directory -Force $FastfetchConfigPath | Out-Null
     New-Item -ItemType Directory -Force $BackupPath | Out-Null
 
     Write-ArDevOk "Folders ready"
@@ -49,8 +51,11 @@ function Install-ArDevTerminal {
 
     Copy-ArDevFile -Source (Join-Path $ProjectRoot "config\aliases.ps1") -Destination (Join-Path $PowerShellConfigPath "aliases.ps1") -Label "aliases.ps1"
     Copy-ArDevFile -Source (Join-Path $ProjectRoot "config\functions.ps1") -Destination (Join-Path $PowerShellConfigPath "functions.ps1") -Label "functions.ps1"
-    Copy-ArDevFile -Source (Join-Path $ProjectRoot "config\starship.toml") -Destination (Join-Path $StarshipConfigPath "starship.toml") -Label "starship.toml"
+    Copy-ArDevFile -Source (Join-Path $ProjectRoot "themes\ardev.toml") -Destination (Join-Path $StarshipConfigPath "starship.toml") -Label "ardev starship theme"
+    Copy-ArDevFile -Source (Join-Path $ProjectRoot "config\fastfetch\config.jsonc") -Destination (Join-Path $FastfetchConfigPath "config.jsonc") -Label "fastfetch      config"
+    Copy-ArDevFile -Source (Join-Path $ProjectRoot "config\fastfetch\ardev.txt") -Destination (Join-Path $FastfetchConfigPath "ardev.txt") -Label "fastfetch logo"
     Copy-ArDevFile -Source (Join-Path $ProjectRoot "config\profile.ps1") -Destination $PROFILE -Label "PowerShell profile"
+    
 
     Write-Host ""
     Write-Host "Installation completed successfully." -ForegroundColor Green
