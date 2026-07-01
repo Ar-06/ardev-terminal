@@ -1,0 +1,54 @@
+{
+  "logo": {
+    "type": "file",
+    "source": "~/.config/fastfetch/ardev.txt",
+    "color": {
+      "1": "cyan"
+    }
+  },
+  "display": {
+    "separator": "  "
+  },
+  "modules": [
+    {
+      "type": "custom",
+      "format": "ArDev Terminal"
+    },
+    {
+      "type": "custom",
+      "format": "Modern Developer Environment"
+    },
+    "break",
+    "os",
+    "host",
+    "cpu",
+    {
+  "type": "command",
+  "key": "GPU",
+  "shell": "pwsh",
+  "param": "-NoProfile -Command",
+  "text": "(Get-CimInstance Win32_VideoController | Where-Object { $_.Name -match 'NVIDIA|RTX' } | Select-Object -First 1 -ExpandProperty Name)"
+},
+{
+  "type": "command",
+  "key": "Git",
+  "shell": "pwsh",
+  "param": "-NoProfile -Command",
+  "text": "(git --version) -replace 'git version ', 'Git '"
+},
+{
+  "type": "command",
+  "key": "Docker",
+  "shell": "pwsh",
+  "param": "-NoProfile -Command",
+  "text": "$v = docker --version; if ($v -match 'Docker version ([^,]+)') { 'Docker ' + $Matches[1] }"
+},
+{
+  "type": "command",
+  "key": "Starship",
+  "shell": "pwsh",
+  "param": "-NoProfile -Command",
+  "text": "starship --version | Select-Object -First 1"
+}
+  ]
+}

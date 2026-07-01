@@ -1,0 +1,60 @@
+# ArDev Theme v0.1.0
+# Minimal, clean and project-focused
+
+add_newline = false
+
+format = "$directory$git_branch$git_status$python$nodejs$docker_context$character"
+
+[directory]
+format = "[󰉋 $path]($style)"
+style = "bold blue"
+truncation_length = 1
+truncate_to_repo = true
+
+[git_branch]
+symbol = "󰘬 "
+format = " [│](dark_gray) [$symbol$branch]($style) "
+style = "bold purple"
+
+[git_status]
+format = "[$all_status$ahead_behind]($style)"
+style = "bold red"
+conflicted = "✖"
+ahead = "⇡${count}"
+behind = "⇣${count}"
+diverged = "⇕"
+untracked = "?"
+stashed = "="
+modified = "!"
+staged = "+"
+renamed = "»"
+deleted = "✘"
+
+[python]
+symbol = " "
+format = " [│](dark_gray) [$symbol$version]($style)"
+style = "bold yellow"
+detect_extensions = ["py"]
+detect_files = ["requirements.txt", "pyproject.toml"]
+detect_folders = [".venv", "venv"]
+
+[nodejs]
+symbol = " "
+format = " [│](dark_gray) [$symbol$version]($style)"
+style = "bold green"
+detect_files = ["package.json"]
+
+[docker_context]
+symbol = " "
+format = " [│](dark_gray) [$symbol]($style)"
+style = "bold blue"
+detect_files = ["docker-compose.yml", "compose.yml", "compose.yaml", "Dockerfile"]
+
+[character]
+format = " $symbol"
+success_symbol = "[❯](bold green) "
+error_symbol = "[❯](bold red) "
+vimcmd_symbol = "[❯](bold green) "
+vimcmd_replace_one_symbol = "[❯](bold green) "
+vimcmd_replace_symbol = "[❯](bold green) "
+vimcmd_visual_symbol = "[❯](bold green) "
