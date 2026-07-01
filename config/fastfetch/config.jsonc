@@ -24,31 +24,32 @@
     "host",
     "cpu",
     {
-      "type": "gpu",
-      "key": "GPU",
-      "driverSpecific": true
-    },
-    "memory",
-    "break",
-    {
-      "type": "shell",
-      "key": "PowerShell"
-    },
-    "terminal",
-    {
-      "type": "command",
-      "key": "Git",
-      "text": "git --version"
-    },
-    {
-      "type": "command",
-      "key": "Docker",
-      "text": "docker --version"
-    },
-    {
-      "type": "command",
-      "key": "WSL",
-      "text": "wsl --version | Select-Object -First 1"
-    },
+  "type": "command",
+  "key": "GPU",
+  "shell": "pwsh",
+  "param": "-NoProfile -Command",
+  "text": "(Get-CimInstance Win32_VideoController | Where-Object { $_.Name -match 'NVIDIA|RTX' } | Select-Object -First 1 -ExpandProperty Name)"
+},
+{
+  "type": "command",
+  "key": "Git",
+  "shell": "pwsh",
+  "param": "-NoProfile -Command",
+  "text": "(git --version) -replace 'git version ', 'Git '"
+},
+{
+  "type": "command",
+  "key": "Docker",
+  "shell": "pwsh",
+  "param": "-NoProfile -Command",
+  "text": "$v = docker --version; if ($v -match 'Docker version ([^,]+)') { 'Docker ' + $Matches[1] }"
+},
+{
+  "type": "command",
+  "key": "Starship",
+  "shell": "pwsh",
+  "param": "-NoProfile -Command",
+  "text": "starship --version | Select-Object -First 1"
+}
   ]
 }
