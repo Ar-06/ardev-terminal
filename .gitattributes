@@ -1,0 +1,16 @@
+# Linux
+*.sh text eol=lf
+*.bash text eol=lf
+.bashrc text eol=lf
+
+# PowerShell
+*.ps1 text eol=crlf
+
+# Configuración
+*.toml text=auto
+*.jsonc text=auto
+*.md text=auto
+
+# Git
+.gitattributes text eol=lf
+.gitignore text eol=lf
