@@ -52,8 +52,15 @@ function Install-ArDevTerminal {
     Copy-ArDevFile -Source (Join-Path $ProjectRoot "config\aliases.ps1") -Destination (Join-Path $PowerShellConfigPath "aliases.ps1") -Label "aliases.ps1"
     Copy-ArDevFile -Source (Join-Path $ProjectRoot "config\functions.ps1") -Destination (Join-Path $PowerShellConfigPath "functions.ps1") -Label "functions.ps1"
     Copy-ArDevFile -Source (Join-Path $ProjectRoot "themes\ardev.toml") -Destination (Join-Path $StarshipConfigPath "starship.toml") -Label "ArDev Starship Theme"
-    Copy-ArDevFile -Source (Join-Path $ProjectRoot "config\fastfetch\config.jsonc") -Destination (Join-Path $FastfetchConfigPath "config.jsonc") -Label "Fastfetch config"
-    Copy-ArDevFile -Source (Join-Path $ProjectRoot "config\fastfetch\ardev.txt") -Destination (Join-Path $FastfetchConfigPath "ardev.txt") -Label "Fastfetch logo"
+    Copy-ArDevFile `
+    -Source (Join-Path $ProjectRoot "config\fastfetch\windows.jsonc") `
+    -Destination (Join-Path $FastfetchConfigPath "config.jsonc") `
+    -Label "Fastfetch config"
+
+    Copy-ArDevFile `
+    -Source (Join-Path $ProjectRoot "config\fastfetch\ardev.txt") `
+    -Destination (Join-Path $FastfetchConfigPath "ardev.txt") `
+    -Label "Fastfetch logo"
     Copy-ArDevFile -Source (Join-Path $ProjectRoot "config\profile.ps1") -Destination $PROFILE -Label "PowerShell profile"
 
     Write-Host ""
